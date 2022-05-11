@@ -9,4 +9,5 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
         self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
+        self.wfile.write(str(datetime.now().strftime("Hello, world!")).encode())
         return
