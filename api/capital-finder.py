@@ -12,15 +12,13 @@ class handler(BaseHTTPRequestHandler):
         if 'country' in dic:
             country = dic['country']
             url = f'https://restcountries.com/v3.1/name/{country}'
-            res = requests.get(url)
-            data = res.json()
+            res = requests.get(url).json()
             capital = data[0]['capital'][0]
             message = f'The capital of {country.title()} is {capital.title()}.'
         elif 'capital' in dic:
             capital = dic['capital']
             url = f'https://restcountries.com/v3.1/capital/{capital}'
             res = requests.get(url).json()
-            data = res.json()
             country = res[0]['name']['common']
             message = f'{capital.title()} is the capital of {country.title()}.'
         else:
