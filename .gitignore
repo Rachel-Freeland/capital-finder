@@ -3,9 +3,10 @@ Source: https://github.com/github/gitignore/blob/master/Python.gitignore
 # User generated
 ENV/
 .vscode
-.idea*
+.idea/*
 .DS_Store
 .history
+.vercel
 
 
 # Byte-compiled / optimized / DLL files
