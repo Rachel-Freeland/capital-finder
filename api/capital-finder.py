@@ -8,7 +8,6 @@ class handler(BaseHTTPRequestHandler):
         url_components = parse.urlsplit(self.path)
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
-
         if 'country' in dic:
             country = dic['country']
             url = f'https://restcountries.com/v3.1/name/{country}'
@@ -22,7 +21,7 @@ class handler(BaseHTTPRequestHandler):
             country = res[0]['name']['common']
             message = f'{capital.title()} is the capital of {country.title()}.'
         else:
-            message = "Please enter a country or a capital."
+            message = 'Not Found'
 
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
